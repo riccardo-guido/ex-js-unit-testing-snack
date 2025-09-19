@@ -22,5 +22,17 @@ function createSlug(text) {
     .replace(/\s+/g, "-")
     .replace(/[^\w\-]+/g, "");
 }
+function isPalindrome(str) {
+  const word = str.toLowerCase().replace(/[^a-z0-9]/g, "");
 
-module.exports = { getInitials, createSlugLower, average, createSlug };
+  const reversedWord = word.split("").reverse().join("");
+  return word === reversedWord;
+}
+
+module.exports = {
+  getInitials,
+  createSlugLower,
+  average,
+  createSlug,
+  isPalindrome,
+};
