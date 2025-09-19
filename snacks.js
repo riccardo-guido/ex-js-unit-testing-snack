@@ -16,12 +16,17 @@ function average(numbers) {
 }
 
 function createSlug(text) {
-  return text
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, "-")
-    .replace(/[^\w\-]+/g, "");
+  if (typeof title !== "string" || title.trim() === "") {
+    throw new Error("Titolo non valido: deve essere una stringa non vuota.");
+  }
+
+  //   return text
+  //     .toLowerCase()
+  //     .trim()
+  //     .replace(/\s+/g, "-")
+  //     .replace(/[^\w\-]+/g, "");
 }
+
 function isPalindrome(str) {
   const word = str.toLowerCase().replace(/[^a-z0-9]/g, "");
 
