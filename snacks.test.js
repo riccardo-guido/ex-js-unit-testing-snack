@@ -4,6 +4,7 @@ const {
   average,
   createSlug,
   isPalindrome,
+  findPostById,
 } = require("./snacks.js");
 
 //SNACK 1
@@ -54,4 +55,30 @@ test("La funzione createSlug lancia un errore se il titolo è vuoto o non valido
   expect(() => createSlug(123)).toThrow(
     "Titolo non valido: deve essere una stringa non vuota."
   );
+});
+
+// SNACK 7
+
+const posts = [
+  {
+    id: 1,
+    title: "Introduzione a JavaScript",
+    slug: "introduzione-a-javascript",
+  },
+  { id: 2, title: "Come usare React", slug: "come-usare-react" },
+  { id: 3, title: "Node.js per principianti", slug: "nodejs-per-principianti" },
+];
+
+test("La funzione findPostById restituisce il post corretto dato l’array di post e l’id.", () => {
+  expect(findPostById(posts, 1)).toEqual({
+    id: 1,
+    title: "Introduzione a JavaScript",
+    slug: "introduzione-a-javascript",
+  });
+  expect(findPostById(posts, 2)).toEqual({
+    id: 2,
+    title: "Come usare React",
+    slug: "come-usare-react",
+  });
+  expect(findPostById(posts, 4)).toBeNull();
 });

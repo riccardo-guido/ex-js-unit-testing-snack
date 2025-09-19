@@ -33,6 +33,9 @@ function isPalindrome(str) {
   const reversedWord = word.split("").reverse().join("");
   return word === reversedWord;
 }
+function findPostById(postsArray, id) {
+  return postsArray.find((post) => post.id === id) || null;
+}
 
 module.exports = {
   getInitials,
@@ -40,4 +43,5 @@ module.exports = {
   average,
   createSlug,
   isPalindrome,
+  findPostById,
 };
