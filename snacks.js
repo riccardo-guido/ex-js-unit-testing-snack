@@ -6,13 +6,8 @@ function getInitials(fullName) {
     .join("");
 }
 
-function createSlug(text) {
-  return text
-    .toLowerCase() // tutto minuscolo
-    .trim() // rimuove spazi iniziali/finali
-    .replace(/\s+/g, "-") // sostituisce spazi con trattini
-    .replace(/[^\w\-]+/g, "") // rimuove caratteri non alfanumerici
-    .replace(/\-\-+/g, "-"); // evita trattini multipli consecutivi
+function createSlugLower(text) {
+  return text.toLowerCase();
 }
 
 function average(numbers) {
@@ -20,4 +15,12 @@ function average(numbers) {
   return sum / numbers.length;
 }
 
-module.exports = { getInitials, createSlug, average };
+function createSlug(text) {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w\-]+/g, "");
+}
+
+module.exports = { getInitials, createSlugLower, average, createSlug };
